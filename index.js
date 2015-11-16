@@ -16,7 +16,9 @@ Changelog.prototype = {
   },
 
   latest: function (callback) {
-    getParsedSections(this.options.filename, callback)
+    getParsedSections(this.options.filename, function(sections) {
+      callback(sections[0])
+    })
   },
 
   matching: function (version, callback) {

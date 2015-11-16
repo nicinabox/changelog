@@ -27,10 +27,9 @@ describe('Changelog', function () {
 
   it('gets latest notes (first section)', function (done) {
     changelog.latest(function(sections) {
-      expect(sections, 'to equal', [
-        { version: '1.1.0', notes: '* Fix stuff' },
-        { version: '1.0.0', notes: '* Initial release' }
-      ])
+      expect(sections, 'to equal', {
+        version: '1.1.0', notes: '* Fix stuff'
+      })
       done()
     })
   })
