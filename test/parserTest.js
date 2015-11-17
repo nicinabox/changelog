@@ -4,20 +4,19 @@ var getRawSections = require('../lib/getRawSections')
 var getParsedSections = require('../lib/getParsedSections')
 
 var FILENAME = './test/CHANGELOG.md'
-var notes = '' +
-'# 1.1.0' +
-'\n\n' +
-'* Fix stuff' +
-'\n\n' +
-'# 1.0.0' +
-'\n\n' +
-'* Initial release' +
-'\n'
+var rawNotes = `# 1.1.0
+
+* Fix stuff
+
+# 1.0.0
+
+* Initial release
+`
 
 describe('parser', function () {
   it('gets raw notes', function (done) {
     getRawNotes(FILENAME, function(raw) {
-      expect(raw, 'to equal', notes)
+      expect(raw, 'to equal', rawNotes)
       done()
     })
   })
