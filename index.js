@@ -6,7 +6,7 @@ var matchSection = require('./lib/matchSection')
 var Changelog = function(options) {
   this.options = _.extend({
     filename: 'CHANGELOG.md',
-    section: '#'
+    headingIdentifier: '#'
   }, options)
 }
 
@@ -16,13 +16,13 @@ Changelog.prototype = {
   },
 
   latest: function (callback) {
-    getParsedSections(this.options.filename, function(sections) {
+    getParsedSections(this.options.filename, this.options.headingIdentifier, function(sections) {
       callback(sections[0])
     })
   },
 
   matching: function (version, callback) {
-    getParsedSections(this.options.filename, function(s) {
+    getParsedSections(this.options.filename, this.options.headingIdentifier, function(s) {
       callback(matchSection(version, s))
     })
   }

@@ -23,14 +23,14 @@ describe('parser', function () {
   })
 
   it('gets raw sections', function(done) {
-    getRawSections(FILENAME, function(sections) {
+    getRawSections(FILENAME, '#', function(sections) {
       expect(sections, 'to be an', 'array')
       done()
     })
   })
 
   it('gets parsed sections', function(done) {
-    getParsedSections(FILENAME, function(sections) {
+    getParsedSections(FILENAME, '#', function(sections) {
       expect(sections, 'to be an', 'array')
       expect(sections[0], 'not to be an', 'array')
       expect(sections[0], 'to be a', 'object')

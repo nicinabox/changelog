@@ -13,7 +13,7 @@ describe('Changelog', function () {
   it('initializes with options', function () {
     expect(changelog.options, 'to equal', {
       filename: './test/CHANGELOG.md',
-      section: '#'
+      headingIdentifier: '#'
     })
   })
 
@@ -28,7 +28,9 @@ describe('Changelog', function () {
   it('gets latest notes (first section)', function (done) {
     changelog.latest(function(sections) {
       expect(sections, 'to equal', {
-        version: '1.1.0', notes: '* Fix stuff'
+        version: '1.1.0',
+        body: '* Fix stuff',
+        notes: ['Fix stuff']
       })
       done()
     })
@@ -37,7 +39,9 @@ describe('Changelog', function () {
   it('gets matched sections (version number)', function (done) {
     changelog.matching('1.0.0', function(sections) {
       expect(sections, 'to equal', {
-        version: '1.0.0', notes: '* Initial release'
+        version: '1.0.0',
+        body: '* Initial release',
+        notes: ['Initial release']
       })
       done()
     })
