@@ -12,8 +12,7 @@ See this project's changelog for an example.
 ## Usage
 
 ```javascript
-var Changelog = require('changelog')
-var changelog = new Changelog([options])
+var changelog = require('changelog')([options])
 changelog.latest(function(notes) {
   // notes in an array of section objects
 })
