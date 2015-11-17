@@ -16,7 +16,7 @@ See this project's changelog for an example.
 ```javascript
 var changelog = require('changelog')([options])
 changelog.latest(function(notes) {
-  // notes in an array of section objects
+  // notes is an array of section objects
 })
 ```
 
