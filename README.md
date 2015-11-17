@@ -2,6 +2,8 @@
 
 A tool for parsing sections from formatted changelogs
 
+**/!\ Not currently published on npm due to naming conflicts.**
+
 ## Changelog anatomy
 
 * Sections must begin with with heading identifier (default: `#`)
