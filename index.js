@@ -4,6 +4,10 @@ var getParsedSections = require('./lib/getParsedSections')
 var matchSection = require('./lib/matchSection')
 
 var Changelog = function(options) {
+  if (!(this instanceof Changelog)) {
+    return new Changelog(options)
+  }
+
   this.options = _.extend({
     filename: 'CHANGELOG.md',
     headingIdentifier: '#'

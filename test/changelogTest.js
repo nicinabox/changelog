@@ -1,15 +1,9 @@
 var expect = require('unexpected')
-var Changelog = require('../index')
+var changelog = require('../index')({
+  filename: './test/CHANGELOG.md'
+})
 
 describe('Changelog', function () {
-  var changelog
-
-  beforeEach(function() {
-    changelog = new Changelog({
-      filename: './test/CHANGELOG.md'
-    })
-  })
-
   it('initializes with options', function () {
     expect(changelog.options, 'to equal', {
       filename: './test/CHANGELOG.md',
