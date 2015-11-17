@@ -3,13 +3,13 @@ var getRawNotes = require('../lib/getRawNotes')
 var getRawSections = require('../lib/getRawSections')
 var getParsedSections = require('../lib/getParsedSections')
 
-var FILENAME = 'CHANGELOG.md'
+var FILENAME = './test/CHANGELOG.md'
 var notes = '' +
-'# Unreleased' +
+'# 1.1.0' +
 '\n\n' +
-'* ???' +
+'* Fix stuff' +
 '\n\n' +
-'# 0.1.0' +
+'# 1.0.0' +
 '\n\n' +
 '* Initial release' +
 '\n'
