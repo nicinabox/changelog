@@ -21,11 +21,11 @@ changelog.latest(function(notes) {
 
 # Options
 
-*filename* `CHANGELOG.md`
+**filename** `CHANGELOG.md`
 
 The name of your release notes for changelog file.
 
-*headingIdentifier* `#`
+**headingIdentifier** `#`
 
 The character(s) that identify a heading.
 
