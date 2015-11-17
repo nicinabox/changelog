@@ -17,6 +17,13 @@ See this project's changelog for an example.
 var changelog = require('changelog')([options])
 changelog.latest(function(notes) {
   // notes is an array of section objects
+  // => [{
+  //      version: '1.0.0',
+  //      body: '* Initial release',
+  //      notes: [
+  //        'Initial release'
+  //      ]
+  //    }]
 })
 ```
 
