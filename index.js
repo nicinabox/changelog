@@ -3,33 +3,27 @@ var getRawNotes = require('./lib/getRawNotes')
 var getParsedSections = require('./lib/getParsedSections')
 var matchSection = require('./lib/matchSection')
 
-var Changelog = function(options) {
-  if (!(this instanceof Changelog)) {
-    return new Changelog(options)
-  }
-
-  this.options = _.extend({
+module.exports = function(options) {
+  options = _.extend({
     filename: 'CHANGELOG.md',
     headingIdentifier: '#'
   }, options)
-}
 
-Changelog.prototype = {
-  raw: function (callback) {
-    getRawNotes(this.options.filename, callback)
-  },
+  var api = {
+    raw: function (callback) {
+      getRawNotes(options.filename, callback)
+    },
 
-  latest: function (callback) {
-    getParsedSections(this.options.filename, this.options.headingIdentifier, function(sections) {
-      callback(sections[0])
-    })
-  },
+    latest: function (callback) {
+      var section = getParsedSections(options.filename, options.headingIdentifier)
+      section(_.compose(callback, _.first))
+    },
 
-  matching: function (version, callback) {
-    getParsedSections(this.options.filename, this.options.headingIdentifier, function(s) {
-      callback(matchSection(version, s))
-    })
+    matching: function (version, callback) {
+      var section = getParsedSections(options.filename, options.headingIdentifier)
+      section(_.compose(callback, matchSection(version)))
+    }
   }
-}
 
-module.exports = Changelog
+  return api
+}

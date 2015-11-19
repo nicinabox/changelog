@@ -4,13 +4,6 @@ var changelog = require('../index')({
 })
 
 describe('Changelog', function () {
-  it('initializes with options', function () {
-    expect(changelog.options, 'to equal', {
-      filename: './test/CHANGELOG.md',
-      headingIdentifier: '#'
-    })
-  })
-
   it('gets raw notes', function (done) {
     changelog.raw(function(raw) {
       expect(raw, 'to be a', 'string')
